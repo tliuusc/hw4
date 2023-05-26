@@ -17,18 +17,19 @@
 
   <body>
     <nav class="navbar bg-primary mb-3" data-bs-theme="dark">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="/">Travel Journal</a>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/places">Travel Journal</a>
           <span class="navbar-text">
             <% if @current_user %>
                 <%= @current_user["username"] %>
-                <a href="/places">All Places</a> | <a href="/logout">Logout</a>
+                <a href="/places">Home</a> | <a href="/logout">Logout</a>
             <% else %>
                 <a href="/login">Login</a> | <a href="/users/new">Signup</a>
             <% end %>
           </span>
-        </div>
-      </nav>
+      </div>
+    </nav>
+    
     <div class = "container">
       <p>
         <% if flash["notice"] %>
