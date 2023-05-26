@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tacostagram Final</title>
+    <title>Travel Journal</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -18,25 +18,26 @@
   <body>
     <nav class="navbar bg-primary mb-3" data-bs-theme="dark">
         <div class="container-fluid">
-        <a class="navbar-brand" href="/">Kwitter</a>
+        <a class="navbar-brand" href="/">Travel Journal</a>
           <span class="navbar-text">
             <% if @current_user %>
-                <%= @current_user["first_name"] %>
-                <a href="/logout">Logout</a>
+                <%= @current_user["username"] %>
+                <a href="/places">All Places</a> | <a href="/logout">Logout</a>
             <% else %>
                 <a href="/login">Login</a> | <a href="/users/new">Signup</a>
             <% end %>
           </span>
         </div>
       </nav>
-    <p>
-      <% if flash["notice"] %>
-        <div class="alert alert-primary mt-3">
-        <%= flash["notice"] %>
-        </div>
-      <% end %>
-    </p>
-
-    <%= yield %>
+    <div class = "container">
+      <p>
+        <% if flash["notice"] %>
+          <div class="alert alert-primary mt-3">
+          <%= flash["notice"] %>
+          </div>
+        <% end %>
+      </p>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,15 +1,16 @@
 <% if @current_user %>
-<h1>Places</h1>
+  <h1>Places</h1>
+  
+  <p>
+    <button class="btn btn-primary" onclick="location.href='/places/new'">New place</button>
+  </p>
 
-<ul>
   <% for place in @places %>
-    <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
-  <% end %>
-</ul>
-
-<p>
-  <a href="/places/new">New place</a>
-</p>
+      <h4><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></h4>
+    <% end %>
+  
 <% else %>
-  You must be <a href="/login">logged in</a>.
+  <p>
+    You must be logged in.
+  </p>
 <% end %>
