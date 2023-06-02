@@ -1,4 +1,6 @@
-<h1><%= @place["name"] %></h1>
+<h2 class="mb-3">
+<%= @place["name"] %>
+</h2>
 
 <p>
     <button class="btn btn-primary" onclick="location.href='/posts/new?place_id=<%= @place["id"] %>'">New Post</button>
@@ -7,14 +9,16 @@
 <div class="row">
   <% for post in @posts %>
     <div class="col-md-4 col-sm-6">
-      <h3><%= post["title"] %></h3>
-      <h6><%= post["posted_on"] %></h6>
-            <% if post.uploaded_image.attached? %>
-        <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+      <h4><%= post["title"] %></h4>
+      <h6 class="mb-3"><%= post["posted_on"] %></h6>
+      <% if post.uploaded_image.attached? %>
+        <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid" style="height: 150px;">
       <% else %>
-      <p>No image uploaded.</p>
+        <div class="mx-auto p-2" style="width: 200px;">
+          No image uploaded.
+        </div>
       <% end %>
-      <p><%= post["description"] %></p>
+      <p class="p-1"><%= post["description"] %></p>
     </div>
   <% end %>
 </div>
